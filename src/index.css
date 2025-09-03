@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* QuakeScope Morphic Design System - Glass-like UI with fluid animations */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    /* Glass morphic colors */
+    --glass: 240 10% 15%;
+    --glass-border: 240 5% 26%;
+    --glass-hover: 240 10% 20%;
+    
+    /* Primary earthquake theme */
+    --primary: 0 86% 58%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 86% 65%;
+    
+    /* Secondary seismic colors */
+    --secondary: 220 14% 20%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Accent colors for UI elements */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 142 76% 50%;
+    
+    /* Muted glass tones */
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 65%;
+    
+    /* Card and popup styles */
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
+    
+    /* Popover glass */
+    --popover: 240 10% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Borders and inputs */
+    --border: 240 5% 26%;
+    --input: 240 6% 10%;
+    --ring: 0 86% 58%;
+    
+    /* Destructive states */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Earthquake magnitude colors */
+    --magnitude-low: 142 76% 36%;      /* Green for < 3.0 */
+    --magnitude-medium: 48 100% 67%;   /* Yellow for 3.0-5.0 */
+    --magnitude-high: 25 95% 53%;      /* Orange for 5.0-6.0 */
+    --magnitude-severe: 0 86% 58%;     /* Red for > 6.0 */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-glass: linear-gradient(145deg, hsl(var(--glass) / 0.8), hsl(var(--glass) / 0.4));
+    --gradient-bg: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(260 15% 8%), hsl(240 10% 3.9%));
+    --gradient-seismic: linear-gradient(90deg, hsl(var(--magnitude-low)), hsl(var(--magnitude-medium)), hsl(var(--magnitude-high)), hsl(var(--magnitude-severe)));
+    
+    /* Shadows and glows */
+    --shadow-morphic: 
+      0 8px 32px hsl(240 10% 0% / 0.4),
+      0 2px 16px hsl(240 10% 0% / 0.2),
+      inset 0 1px 0 hsl(0 0% 100% / 0.1);
+    --shadow-glass: 
+      0 4px 16px hsl(240 10% 0% / 0.3),
+      0 1px 4px hsl(240 10% 0% / 0.2),
+      inset 0 1px 0 hsl(0 0% 100% / 0.05);
+    --shadow-hover: 
+      0 12px 48px hsl(240 10% 0% / 0.5),
+      0 4px 24px hsl(240 10% 0% / 0.3),
+      inset 0 1px 0 hsl(0 0% 100% / 0.15);
+    --glow-primary: 0 0 20px hsl(var(--primary) / 0.5);
+    --glow-accent: 0 0 20px hsl(var(--accent) / 0.4);
+    
+    /* Animation timings */
+    --transition-morphic: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-smooth: all 0.2s ease-out;
+    
+    /* Border radius */
+    --radius: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    
+    /* Backdrop blur */
+    --blur: 16px;
+    --blur-strong: 24px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Morphic glass components */
+  .glass-morphic {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+    box-shadow: var(--shadow-glass);
+    transition: var(--transition-morphic);
+  }
+  
+  .glass-morphic:hover {
+    background: linear-gradient(145deg, hsl(var(--glass-hover) / 0.9), hsl(var(--glass-hover) / 0.5));
+    box-shadow: var(--shadow-hover);
+    border-color: hsl(var(--glass-border) / 0.5);
+  }
+  
+  .morphic-button {
+    @apply glass-morphic;
+    border-radius: var(--radius);
+    padding: 0.75rem 1.5rem;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .morphic-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .morphic-button:hover:before {
+    left: 100%;
+  }
+  
+  .morphic-card {
+    @apply glass-morphic;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+  
+  .morphic-panel {
+    @apply glass-morphic;
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    backdrop-filter: blur(var(--blur-strong));
+  }
+  
+  /* Seismic magnitude indicators */
+  .magnitude-low { 
+    background: hsl(var(--magnitude-low));
+    box-shadow: 0 0 10px hsl(var(--magnitude-low) / 0.6);
+  }
+  
+  .magnitude-medium { 
+    background: hsl(var(--magnitude-medium));
+    box-shadow: 0 0 10px hsl(var(--magnitude-medium) / 0.6);
+  }
+  
+  .magnitude-high { 
+    background: hsl(var(--magnitude-high));
+    box-shadow: 0 0 10px hsl(var(--magnitude-high) / 0.6);
+  }
+  
+  .magnitude-severe { 
+    background: hsl(var(--magnitude-severe));
+    box-shadow: 0 0 15px hsl(var(--magnitude-severe) / 0.8);
+  }
+  
+  /* Animations */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    from {
+      box-shadow: 0 0 5px currentColor;
+    }
+    to {
+      box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+  }
+  
+  .spring-hover {
+    transition: var(--transition-spring);
+  }
+  
+  .spring-hover:hover {
+    transform: scale(1.05);
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbars but keep scroll functionality */
+  .scrollbar-none {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}

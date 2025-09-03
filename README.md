@@ -1,58 +1,145 @@
+
+
 # QuakeScope
 
-Real-time earthquake visualization and alert subscriptions.
+QuakeScope is a web application for exploring recent earthquake activity with a focus on clarity, interactivity, and user control. The app features a dark, modern UI and is designed for users who want to:
+
+- View recent earthquakes on a world map with color-coded markers by magnitude
+- Use filters to select time range, magnitude, and depth
+- Switch between cluster and heatmap visualizations
+- See detailed event info, including location, time, depth, and a quick AI-generated summary
+- Explore insights panels with statistics and charts (magnitude, depth, largest, most recent, etc.)
+
+## Features
+
+- **Interactive Map**: Pan, zoom, and click on earthquakes for details. Markers are colored and sized by magnitude. Cluster and heatmap modes are available.
+- **Filters**: Quickly filter events by time (1 day, 7 days, 30 days), magnitude, and depth. Toggle heatmap and cluster overlays.
+- **Insights Panel**: See stats like total events, largest magnitude, average, deepest, most recent, and distribution charts.
+- **AI Event Summary**: For each event, generate a short, plain-language summary using AI (if API key is set).
+- **Mobile Friendly**: Responsive layout and touch support.
 
 ## Tech Stack
 
 - Vite + React + TypeScript
-- Tailwind CSS + shadcn/ui
-- Firebase (Firestore, Functions)
+- Tailwind CSS + shadcn/ui (Radix UI)
+- Leaflet (map), Framer Motion (animations)
+- Firebase (Firestore, Functions) for alerts (optional)
 
 ## Getting Started
 
-Prerequisites: Node.js 18+, npm
+### Prerequisites
+- Node.js 18+
+- npm
 
-1. Install dependencies
-```sh
-npm i
-```
+### Installation
+1. Clone the repository:
+	```sh
+	git clone https://github.com/Aryankaushal82/quake-vista-flow.git
+	cd quake-vista-flow
+	```
+2. Install dependencies:
+	```sh
+	npm install
+	```
+3. Configure environment variables:
+	Create a `.env` file in the root directory and add:
+	```env
+	VITE_FIREBASE_API_KEY=...
+	VITE_FIREBASE_AUTH_DOMAIN=...
+	VITE_FIREBASE_PROJECT_ID=...
+	VITE_FIREBASE_STORAGE_BUCKET=...
+	VITE_FIREBASE_MESSAGING_SENDER_ID=...
+	VITE_FIREBASE_APP_ID=...
+	# Optional: enable callable alerts
+	VITE_ENABLE_ALERTS_CALLABLE=false
+	```
 
-2. Configure environment variables in `.env`
-```env
-VITE_FIREBASE_API_KEY=...
-VITE_FIREBASE_AUTH_DOMAIN=...
-VITE_FIREBASE_PROJECT_ID=...
-VITE_FIREBASE_STORAGE_BUCKET=...
-VITE_FIREBASE_MESSAGING_SENDER_ID=...
-VITE_FIREBASE_APP_ID=...
-# Optional: enable callable alerts
-VITE_ENABLE_ALERTS_CALLABLE=false
-```
-
-3. Run the dev server
+### Running Locally
+Start the development server:
 ```sh
 npm run dev
 ```
-
-## Features
-
-- Explore recent seismic events on an interactive map
-- Filters, insights, and timeline playback
-- Subscribe with your email to receive alerts (Firestore save; Functions optional)
+Visit the local URL shown in your terminal.
 
 ## Deployment
 
-Build the app:
+Build the app for production:
 ```sh
 npm run build
 ```
-Preview locally:
+Preview the production build locally:
 ```sh
 npm run preview
 ```
+Deploy the contents of the `dist` folder to any static host (Netlify, Vercel, Firebase Hosting, etc.).
 
-Deploy to any static host (Netlify, Vercel, Firebase Hosting, etc.)
+## Contributing
+
+Pull requests and issues are welcome. Please describe your changes clearly.
 
 ## License
 
 MIT
+
+## Tech Stack
+
+- [Vite](https://vitejs.dev/) + [React](https://react.dev/) + TypeScript
+- [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
+- [Leaflet](https://leafletjs.com/) (map), [Framer Motion](https://www.framer.com/motion/) (animations)
+- [Firebase](https://firebase.google.com/) (Firestore, Functions)
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm
+
+### Installation
+1. **Clone the repository:**
+	```sh
+	git clone https://github.com/Aryankaushal82/quake-vista-flow.git
+	cd quake-vista-flow
+	```
+2. **Install dependencies:**
+	```sh
+	npm install
+	```
+3. **Configure environment variables:**
+	Create a `.env` file in the root directory and add:
+	```env
+	VITE_FIREBASE_API_KEY=...
+	VITE_FIREBASE_AUTH_DOMAIN=...
+	VITE_FIREBASE_PROJECT_ID=...
+	VITE_FIREBASE_STORAGE_BUCKET=...
+	VITE_FIREBASE_MESSAGING_SENDER_ID=...
+	VITE_FIREBASE_APP_ID=...
+	# Optional: enable callable alerts
+	VITE_ENABLE_ALERTS_CALLABLE=false
+	```
+
+### Running Locally
+Start the development server:
+```sh
+npm run dev
+```
+Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+
+## Deployment
+
+Build the app for production:
+```sh
+npm run build
+```
+Preview the production build locally:
+```sh
+npm run preview
+```
+Deploy the contents of the `dist` folder to any static host (Netlify, Vercel, Firebase Hosting, etc.).
+
+## Contributing
+
+Contributions are welcome! Please open issues or pull requests for bug fixes, features, or improvements.
+
+## License
+
+This project is licensed under the MIT License.

@@ -23,7 +23,6 @@ QuakeScope is a web application for exploring recent earthquake activity with a 
 - Vite + React + TypeScript
 - Tailwind CSS + shadcn/ui (Radix UI)
 - Leaflet (map), Framer Motion (animations)
-- Firebase (Firestore, Functions) for alerts (optional)
 
 ## Getting Started
 
@@ -44,14 +43,7 @@ QuakeScope is a web application for exploring recent earthquake activity with a 
 3. Configure environment variables:
 	Create a `.env` file in the root directory and add:
 	```env
-	VITE_FIREBASE_API_KEY=...
-	VITE_FIREBASE_AUTH_DOMAIN=...
-	VITE_FIREBASE_PROJECT_ID=...
-	VITE_FIREBASE_STORAGE_BUCKET=...
-	VITE_FIREBASE_MESSAGING_SENDER_ID=...
-	VITE_FIREBASE_APP_ID=...
-	# Optional: enable callable alerts
-	VITE_ENABLE_ALERTS_CALLABLE=false
+	VITE_OPENROUTER_API_KEY=
 	```
 
 ### Running Locally
@@ -86,55 +78,11 @@ MIT
 - [Vite](https://vitejs.dev/) + [React](https://react.dev/) + TypeScript
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
 - [Leaflet](https://leafletjs.com/) (map), [Framer Motion](https://www.framer.com/motion/) (animations)
-- [Firebase](https://firebase.google.com/) (Firestore, Functions)
-
-## Getting Started
 
 ### Prerequisites
 - Node.js 18+
 - npm
 
-### Installation
-1. **Clone the repository:**
-	```sh
-	git clone https://github.com/Aryankaushal82/quake-vista-flow.git
-	cd quake-vista-flow
-	```
-2. **Install dependencies:**
-	```sh
-	npm install
-	```
-3. **Configure environment variables:**
-	Create a `.env` file in the root directory and add:
-	```env
-	VITE_FIREBASE_API_KEY=...
-	VITE_FIREBASE_AUTH_DOMAIN=...
-	VITE_FIREBASE_PROJECT_ID=...
-	VITE_FIREBASE_STORAGE_BUCKET=...
-	VITE_FIREBASE_MESSAGING_SENDER_ID=...
-	VITE_FIREBASE_APP_ID=...
-	# Optional: enable callable alerts
-	VITE_ENABLE_ALERTS_CALLABLE=false
-	```
-
-### Running Locally
-Start the development server:
-```sh
-npm run dev
-```
-Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
-
-## Deployment
-
-Build the app for production:
-```sh
-npm run build
-```
-Preview the production build locally:
-```sh
-npm run preview
-```
-Deploy the contents of the `dist` folder to any static host (Netlify, Vercel, Firebase Hosting, etc.).
 
 ## Contributing
 

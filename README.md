@@ -33,8 +33,8 @@ QuakeScope is a web application for exploring recent earthquake activity with a 
 ### Installation
 1. Clone the repository:
 	```sh
-	git clone https://github.com/Aryankaushal82/quake-vista-flow.git
-	cd quake-vista-flow
+	git clone https://github.com/Aryankaushal82/QuakeScope.git
+	cd QuakeScope
 	```
 2. Install dependencies:
 	```sh
